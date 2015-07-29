@@ -4,7 +4,7 @@
   "description": "To provide pdfjs viewer as a npm package",
   "main": "publish.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",

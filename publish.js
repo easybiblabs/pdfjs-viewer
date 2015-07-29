@@ -1,28 +1,35 @@
 var tag = 'v1.1.114';
+var logPadding = '####### ';
+
+var log = function(msg){
+  console.log(logPadding);
+  console.log(logPadding + msg);
+  console.log(logPadding);
+};
 
 require('shelljs/global');
 
-console.log('clone PDFJS');
+log('Clone PDF.js');
 
 exec('git clone https://github.com/mozilla/pdf.js');
 
 pushd('pdf.js');
 
-console.log('checkout tag ' + tag);
+log('Checkout tag ' + tag);
 
 exec(['git checkout ', tag].join(''));
 
-console.log('install dependencies');
+log('Install dependencies');
 
 exec('npm install');
 
-console.log('build generic bundle');
+log('Build generic bundle');
 
 exec('node make generic');
 exec('node make singlefile');
 popd();
 
-console.log('copy viewer files to dist directory');
+log('Copy viewer files to dist directory');
 
 exec('mkdir dist');
 exec('cp -a ./pdf.js/build/generic/web/. ./dist');
@@ -31,4 +38,5 @@ exec('cp -a ./pdf.js/build/singlefile/build/. ./dist');
 pushd('dist');
 exec('sed -i s/..\\\\/build\\\\/pdf.js/pdf.combined.js/g viewer.html');
 
+log('Done');
 

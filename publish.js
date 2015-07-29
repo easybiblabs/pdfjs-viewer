@@ -19,9 +19,16 @@ exec('npm install');
 console.log('build generic bundle');
 
 exec('node make generic');
+exec('node make singlefile');
 popd();
 
 console.log('copy viewer files to dist directory');
 
-exec('mkdir dist/generic');
-exec('cp -a ./pdf.js/build/generic/web/. ./dist/generic');
+exec('mkdir dist');
+exec('cp -a ./pdf.js/build/generic/web/. ./dist');
+exec('cp -a ./pdf.js/build/singlefile/build/. ./dist');
+
+pushd('dist');
+exec('sed -i s/..\\\\/build\\\\/pdf.js/pdf.combined.js/g viewer.html');
+
+

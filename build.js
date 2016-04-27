@@ -35,7 +35,6 @@ exec('cp -a ./pdf.js/build/generic/web/. ./dist');
 exec('cp -a ./pdf.js/build/generic/build/. ./dist');
 
 pushd('dist');
-exec('sed -i s/..\\\\/build\\\\/pdf.js/pdf.combined.js/g viewer.html');
 
 log('Done');
 

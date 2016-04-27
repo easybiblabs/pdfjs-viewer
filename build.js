@@ -33,6 +33,7 @@ log('Copy viewer files to dist directory');
 exec('mkdir dist');
 exec('cp -a ./pdf.js/build/generic/web/. ./dist');
 exec('cp -a ./pdf.js/build/generic/build/. ./dist');
+exec('cp ./pdf.js/LICENSE ./dist');
 
 pushd('dist');
 

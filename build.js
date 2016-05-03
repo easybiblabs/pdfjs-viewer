@@ -1,4 +1,4 @@
-var tag = 'v1.1.114';
+var tag = 'v1.5.188';
 var logPadding = '####### ';
 
 var log = function(msg){
@@ -26,17 +26,16 @@ exec('npm install');
 log('Build generic bundle');
 
 exec('node make generic');
-exec('node make singlefile');
 popd();
 
 log('Copy viewer files to dist directory');
 
 exec('mkdir dist');
 exec('cp -a ./pdf.js/build/generic/web/. ./dist');
-exec('cp -a ./pdf.js/build/singlefile/build/. ./dist');
+exec('cp -a ./pdf.js/build/generic/build/. ./dist');
+exec('cp ./pdf.js/LICENSE ./dist');
 
 pushd('dist');
-exec('sed -i s/..\\\\/build\\\\/pdf.js/pdf.combined.js/g viewer.html');
 
 log('Done');
 

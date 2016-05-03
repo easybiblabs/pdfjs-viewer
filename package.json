@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/easybiblabs/pdfjs-viewer",
   "devDependencies": {
-    "shelljs": "^0.5.1",
-    "pdf.js": "git+ssh://git@github.com:mozilla/pdf.js.git"
+    "shelljs": "0.5.1"
   }
 }
